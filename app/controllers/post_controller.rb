@@ -6,14 +6,16 @@ class PostController < ApplicationController
     end
 
     def new
-      #render html: "haha"
+      
     end
 
 
     def create
-        render plain:  parama[:post].inspect
+        #render html: "haha"
+        render plain:  params[:post]
     end
-
+    def contact
+        end
 
   
   
