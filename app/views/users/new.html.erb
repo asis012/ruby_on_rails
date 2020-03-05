@@ -1,8 +1,27 @@
 <% provide(:title, 'Sign up') %>
+
 <h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  
+ <%= form_for(@user, url: signup_path) do |f1| %>
+ <%= render 'shared/error_messages' %>
+      <%= f1.label :namee %>
+      <%= f1.text_field :name , class: 'form-control'%>
+
+      <%= f1.label :email %>
+      <%= f1.email_field :email, class: 'form-control' %>
+
+      <%= f1.label :password %>
+      <%= f1.password_field :password, class: 'form-control' %>
+
+      <%= f1.label :password_confirmation, "Confirmation" %>
+      <%= f1.password_field :password_confirmation , class: 'form-control'%>
+
+      <%= f1.submit "Create my account", class: "btn btn-primary" %>
+    <%end%>
 
 
-255.255.248.0
-
-10.10.0.1
+  </div>
+</div>

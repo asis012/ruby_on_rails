@@ -7,4 +7,4 @@ class User < ApplicationRecord
     validates :password, presence: true, length: {minimum: 6}
 end
 
-User.create(name: "Michael Hartl", email: "mhartl@example.com",password: "foobar", password_confirmation: "foobar")
+# User.create(name: "Michael Hartl", email: "mhartl@example.com",password: "foobar", password_confirmation: "foobar")

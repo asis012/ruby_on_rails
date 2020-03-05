@@ -13,7 +13,8 @@ gem 'rails-controller-testing'
 gem 'bootstrap-sass'
 # gem 'rails'
 gem 'bcrypt'
-# gem 'pry-rails'
+ gem 'pry-rails'
+ gem 'jquery-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
