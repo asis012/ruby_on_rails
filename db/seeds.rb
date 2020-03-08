@@ -9,23 +9,30 @@
 
 
 
-User.create!(name: "gyawalia",
-              email: "gyawali@butwal.com",
-              password: "hajur1234",
-              password_confirmation: "hajur1234"  )
+# User.create!(name: "gyawalia",
+#               email: "gyawali@butwal.com",
+#               password: "hajur1234",
+#               password_confirmation: "hajur1234"  )
 
-User.create!(name: "ashish gyawali",
-email: "asis3005@gmail.com",
-password: "hajur1234",
-password_confirmation: "hajur1234",
-admin: true  )
+# User.create!(name: "ashish gyawali",
+# email: "asis3005@gmail.com",
+# password: "hajur1234",
+# password_confirmation: "hajur1234",
+# admin: true  )
 
-# 99.times do |x|
-#   name = Faker::Name.name
-#   email = "gyawali-#{x+1}@butwal.com"
-#   User.create!(name: name,
-#                 email: email,
-#                 password: "password",
-#                 password_confirmation: "password")
+99.times do |x|
+  name = Faker::Name.name
+  email = "gyawali-#{x+1}@butwal.com"
+  User.create!(name: name,
+                email: email,
+                password: "password",
+                password_confirmation: "password")
 
-# end
+end
+
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(content: content) }
+end

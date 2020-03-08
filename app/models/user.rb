@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :microposts, dependent: :destroy
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { maximum: 50 }
@@ -23,6 +24,13 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
   end
+
+  def feed
+    Micropost.where("user_id = ?", id)
+    
+  end
+
+
 end
 
 # User.create(name: "Michael Hartl", email: "mhartl@example.com",password: "foobar", password_confirmation: "foobar")

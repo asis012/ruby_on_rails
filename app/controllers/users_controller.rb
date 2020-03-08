@@ -19,6 +19,8 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
+   
   end
 
   def edit
@@ -50,13 +52,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def log_at_first
-    unless logged_in?
-      store_location
-      flash[:danger] = 'login at first'
-      redirect_to login_url
-    end
-  end
+
 
   def current_user_only
     @user = User.find(params[:id])

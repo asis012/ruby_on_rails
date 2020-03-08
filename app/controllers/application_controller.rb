@@ -9,4 +9,16 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
+
+
+  private
+
+
+  def log_at_first
+    unless logged_in?
+      store_location
+      flash[:danger] = 'login at first'
+      redirect_to login_url
+    end
+  end
 end
