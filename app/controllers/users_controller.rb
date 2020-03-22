@@ -20,7 +20,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
-   
   end
 
   def edit
@@ -52,16 +51,26 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   def current_user_only
     @user = User.find(params[:id])
-
     unless @user == current_user
-
       redirect_to(root_url) unless @user == current_user
       flash[:danger] = 'Cannot edit others profile'
     end
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private

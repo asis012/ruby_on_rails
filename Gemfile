@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -19,7 +18,6 @@ gem 'bcrypt'
 gem 'sqlite3'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem 'rubocop', require: false
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

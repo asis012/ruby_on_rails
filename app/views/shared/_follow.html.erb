@@ -1,0 +1,11 @@
+<%=  form_for (current_user.active_relationships.build, remote: true,  authenticity_token: true) do |f| %>
+    <div> <%= hidden_field_tag :followed_id, @user.id
+    %>
+    </div>
+    <%= f.submit "Follow", class: "btn btn-primary"%>
+    <!-- form_for @object, html: { multipart: true }, do |f| -->
+    <!-- form_for @object, html: { class: "classname" }, do |f| -->
+
+    
+<% end %>
+  

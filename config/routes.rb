@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-
- 
-
-
-  
-
   get 'help' => 'static_pages#help'
   get 'home' => 'static_pages#home'
   get 'about' => 'static_pages#about'
@@ -21,8 +15,13 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :microposts, only: [:create, :destroy]
 
+  resources :users do
+    member do
+      get :followers, :following
+    end
+  end
 
-
+  resources :relationships, only: [:create, :destroy]
   # get 'about' => 'pages#about'
   # post 'signup' => 'users#create' 
   #get 'post/create'
